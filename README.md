@@ -1,7 +1,31 @@
 # tugas-besar-dagozilla
 
+## Author
+- Albert
+- Faaiq
+- Nafi
+- Dika
 
+## TO-DO
+- Specify the value of PWM for each motor
+- Create system that will stop the robot when program is interrupted (learn more about ros interrupt)
+- Connecting ROS Node to STM32 Nucleo (learn more about rosserial)
+- Make bonus-specification
 
+## References
+- [ROS Custom Launch Files Args , Params , Remap](https://www.youtube.com/watch?v=0-zTU4_S6vY&list=PLBbhfIdh4NdgBBkX7q0Y3UukO2_ZoICee&index=5)
+- [rosserial](http://wiki.ros.org/rosserial)
+- [Interfacing STM32 boards to ROS using rosserial protocol | ROS | Learn with George](https://www.youtube.com/watch?v=cq0HmKrIOt8&t=686s)
+- [rosserial_stm32](https://github.com/yoneken/rosserial_stm32)
+- [Mode input bonus](https://github.com/arebgun/erratic_robot/blob/master/erratic_teleop/src/keyboard.cpp)
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
+
+&nbsp;
 ## Getting started
 
 To make it easy for you to get started with GitLab, here's a list of recommended next steps.
