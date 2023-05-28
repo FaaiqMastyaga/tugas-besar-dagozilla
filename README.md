@@ -7,6 +7,7 @@
 - Dika
 
 ## TO-DO
+- Make the correct structure for workspace (especially launch file)
 - Specify the value of PWM for each motor
 - Create system that will stop the robot when program is interrupted (learn more about ros interrupt)
 - Connecting ROS Node to STM32 Nucleo (learn more about rosserial)
