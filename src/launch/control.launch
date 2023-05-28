@@ -4,7 +4,7 @@
         
     </node>
 
-    <node pkg="control" type="input_node.py" name="input_node.py">
+    <node pkg="control" type="input_node" name="input_node">
         
     </node>
 </launch>
