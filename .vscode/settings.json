@@ -1,12 +1,14 @@
 {
     "files.associations": {
         "*.msg": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "iostream": "cpp"
     },
     "python.autoComplete.extraPaths": [
         "/opt/ros/noetic/lib/python3/dist-packages"
     ],
     "python.analysis.extraPaths": [
         "/opt/ros/noetic/lib/python3/dist-packages"
-    ]
+    ],
+    "cmake.sourceDirectory": "/home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/src/control"
 }

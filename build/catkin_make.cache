@@ -1,2 +1,2 @@
-
+control:msgs
 -DCATKIN_DEVEL_PREFIX=/home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/devel -DCMAKE_INSTALL_PREFIX=/home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/install -G Unix Makefiles
