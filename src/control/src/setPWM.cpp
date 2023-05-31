@@ -1,19 +1,19 @@
 #include "setPWM.hpp"
 
-msg::HardwareCommand PWM;
-
 void moveForward() {
     PWM.motor1 = 0;
     PWM.motor2 = 0;
     PWM.motor3 = 0;
     PWM.motor4 = 0;
+    ROS_INFO("Move Forward");
 }
 
-void moveLeft() {
+void slideLeft() {
     PWM.motor1 = 0;
     PWM.motor2 = 0;
     PWM.motor3 = 0;
     PWM.motor4 = 0;
+    ROS_INFO("Slide Left");
 }
 
 void moveBackward() {
@@ -21,13 +21,15 @@ void moveBackward() {
     PWM.motor2 = 0;
     PWM.motor3 = 0;
     PWM.motor4 = 0;
+    ROS_INFO("Move Backward");
 }
 
-void moveRight() {
+void slideRight() {
     PWM.motor1 = 0;
     PWM.motor2 = 0;
     PWM.motor3 = 0;
     PWM.motor4 = 0;
+    ROS_INFO("Slide Right");
 }
 
 void Rotate() {
@@ -35,4 +37,5 @@ void Rotate() {
     PWM.motor2 = 0;
     PWM.motor3 = 0;
     PWM.motor4 = 0;
+    ROS_INFO("Rotate");
 }

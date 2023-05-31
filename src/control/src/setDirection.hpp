@@ -1,9 +1,11 @@
-#ifndef setDirection_HPP
-#define setDirection_HPP
+#ifndef SETDIRECTION_HPP
+#define SETDIRECTION_HPP
 
-#include "std_msgs/Char.h"
+#include "std_msgs/String.h"
 #include "setPWM.hpp"
+#include <iostream>
+#include <string>
 
-void setDirection(const std_msgs::Char::ConstPtr& msg);
+void setDirection(const std_msgs::String::ConstPtr& msg);
 
 #endif

@@ -1,23 +1,24 @@
 #include "setDirection.hpp"
 
-void setDirection(const std_msgs::Char::ConstPtr& msg) {
-    char commandInput = msg->data.c_str();
+void setDirection(const std_msgs::String::ConstPtr& msg) {
+    std::string commandInput = msg->data.c_str();
 
-    switch(commandInput) {
-        case 'w':
-            moveForward();
-            break;
-        case 'a':
-            moveLeft();
-            break;
-        case 's':
-            moveBackward();
-            break;
-        case 'd':
-            moveRight();
-            break;
-        case 'r':
-            Rotate();
-            break;
+    if (commandInput == "w") {
+        moveForward();
+    }
+    else if (commandInput == "a") {
+        slideLeft();
+    }
+    else if (commandInput == "s") {
+        moveBackward();
+    }
+    else if (commandInput == "d") {
+        slideRight();
+    }
+    else if (commandInput == "r") {
+        Rotate();
+    }
+    else {
+        std::cout << "input error" << std::endl;
     }
 }

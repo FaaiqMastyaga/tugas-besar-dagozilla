@@ -3,10 +3,12 @@
 
 #include "msgs/HardwareCommand.h"
 
+msgs::HardwareCommand PWM;
+
 void moveForward();
-void moveLeft();
+void slideLeft();
 void moveBackward();
-void moveRight();
+void slideRight();
 void Rotate();
 
 #endif
