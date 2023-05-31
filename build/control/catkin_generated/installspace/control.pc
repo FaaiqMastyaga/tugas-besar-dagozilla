@@ -1,0 +1,8 @@
+prefix=/home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/install
+
+Name: control
+Description: Description of control
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
