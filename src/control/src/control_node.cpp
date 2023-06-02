@@ -1,6 +1,5 @@
 #include "ros/ros.h"
 
-#include "std_msgs/String.h"
 #include "msgs/HardwareCommand.h"
 
 #include "setDirection.hpp"
