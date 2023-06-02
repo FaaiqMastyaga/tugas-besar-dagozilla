@@ -1,6 +1,6 @@
 set(_CATKIN_CURRENT_PACKAGE "control")
 set(control_VERSION "0.0.0")
-set(control_MAINTAINER "faaiq <faaiq@todo.todo>")
+set(control_MAINTAINER "albert <albert@todo.todo>")
 set(control_PACKAGE_FORMAT "2")
 set(control_BUILD_DEPENDS "roscpp" "rospy")
 set(control_BUILD_EXPORT_DEPENDS "roscpp" "rospy")

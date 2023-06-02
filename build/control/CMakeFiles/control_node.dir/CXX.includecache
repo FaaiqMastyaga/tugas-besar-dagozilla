@@ -25,8 +25,6 @@ ros/message_operations.h
 /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/src/control/src/control_node.cpp
 ros/ros.h
 /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/src/control/src/ros/ros.h
-std_msgs/String.h
-/home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/src/control/src/std_msgs/String.h
 msgs/HardwareCommand.h
 /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/src/control/src/msgs/HardwareCommand.h
 setDirection.hpp
@@ -37,10 +35,6 @@ iostream
 -
 string
 -
-
-/home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/src/control/src/setDirection.hpp
-
-/home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/src/control/src/setPWM.hpp
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h
@@ -689,22 +683,6 @@ ros/forwards.h
 /opt/ros/noetic/include/ros/ros/forwards.h
 
 /opt/ros/noetic/include/rosconsole/macros_generated.h
-
-/opt/ros/noetic/include/std_msgs/String.h
-string
--
-vector
--
-memory
--
-ros/types.h
--
-ros/serialization.h
--
-ros/builtin_message_traits.h
--
-ros/message_operations.h
--
 
 /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
 ros/macros.h

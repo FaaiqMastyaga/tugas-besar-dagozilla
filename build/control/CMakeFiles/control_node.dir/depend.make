@@ -3,8 +3,6 @@
 
 control/CMakeFiles/control_node.dir/src/control_node.cpp.o: /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/devel/include/msgs/HardwareCommand.h
 control/CMakeFiles/control_node.dir/src/control_node.cpp.o: /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/src/control/src/control_node.cpp
-control/CMakeFiles/control_node.dir/src/control_node.cpp.o: /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/src/control/src/setDirection.hpp
-control/CMakeFiles/control_node.dir/src/control_node.cpp.o: /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/src/control/src/setPWM.hpp
 control/CMakeFiles/control_node.dir/src/control_node.cpp.o: /opt/ros/noetic/include/ros/advertise_options.h
 control/CMakeFiles/control_node.dir/src/control_node.cpp.o: /opt/ros/noetic/include/ros/advertise_service_options.h
 control/CMakeFiles/control_node.dir/src/control_node.cpp.o: /opt/ros/noetic/include/ros/assert.h
@@ -61,7 +59,6 @@ control/CMakeFiles/control_node.dir/src/control_node.cpp.o: /opt/ros/noetic/incl
 control/CMakeFiles/control_node.dir/src/control_node.cpp.o: /opt/ros/noetic/include/ros/wall_timer.h
 control/CMakeFiles/control_node.dir/src/control_node.cpp.o: /opt/ros/noetic/include/ros/wall_timer_options.h
 control/CMakeFiles/control_node.dir/src/control_node.cpp.o: /opt/ros/noetic/include/rosconsole/macros_generated.h
-control/CMakeFiles/control_node.dir/src/control_node.cpp.o: /opt/ros/noetic/include/std_msgs/String.h
 control/CMakeFiles/control_node.dir/src/control_node.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcDecl.h
 control/CMakeFiles/control_node.dir/src/control_node.cpp.o: /opt/ros/noetic/include/xmlrpcpp/XmlRpcValue.h
 

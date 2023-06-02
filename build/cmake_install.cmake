@@ -131,6 +131,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build/gtest/cmake_install.cmake")
+  include("/home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build/launch/cmake_install.cmake")
   include("/home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build/msgs/cmake_install.cmake")
   include("/home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build/control/cmake_install.cmake")
 
