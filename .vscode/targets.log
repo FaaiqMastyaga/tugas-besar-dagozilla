@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun May 28 12:18:12 2023
+# Make data base, printed on Wed May 31 13:08:33 2023
 
 # Variables
 
@@ -51,7 +51,7 @@ GIO_MODULE_DIR = /home/faaiq/snap/code/common/.cache/gio-modules
 # environment
 VSCODE_NLS_CONFIG = {"locale":"en-us","osLocale":"en-us","availableLanguages":{},"_languagePackSupport":true}
 # environment
-JOURNAL_STREAM = 8:47351
+JOURNAL_STREAM = 8:47249
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # environment
@@ -79,7 +79,7 @@ _ = /snap/code/129/usr/share/code/code
 # environment
 ROS_PACKAGE_PATH = /opt/ros/noetic/share
 # environment
-MANAGERPID = 1476
+MANAGERPID = 1517
 # environment
 ROS_PYTHON_VERSION = 3
 # environment
@@ -91,7 +91,7 @@ GSETTINGS_SCHEMA_DIR = /home/faaiq/snap/code/129/.local/share/glib-2.0/schemas
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
-PATH = /opt/ros/noetic/bin:/home/faaiq/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+PATH = /home/faaiq/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 # environment
 XDG_SESSION_DESKTOP = ubuntu
 # environment
@@ -99,7 +99,7 @@ GPG_AGENT_INFO = /run/user/1000/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/faaiq-VivoBook-ASUSLaptop-X421EQY-K413EQ:@/tmp/.ICE-unix/1751,unix/faaiq-VivoBook-ASUSLaptop-X421EQY-K413EQ:/tmp/.ICE-unix/1751
+SESSION_MANAGER = local/faaiq-VivoBook-ASUSLaptop-X421EQY-K413EQ:@/tmp/.ICE-unix/1783,unix/faaiq-VivoBook-ASUSLaptop-X421EQY-K413EQ:/tmp/.ICE-unix/1783
 # environment
 XDG_RUNTIME_DIR = /run/user/1000
 # environment
@@ -117,7 +117,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 6e026932f4dc4ef3a167fe3ee460ee01
+INVOCATION_ID = 3b60b97adc1b4199bdefce1987a68a45
 # environment
 GDK_PIXBUF_MODULEDIR = /snap/code/129/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders
 # default
@@ -131,7 +131,7 @@ ROS_DISTRO = noetic
 # environment
 SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 2390
+GIO_LAUNCHED_DESKTOP_FILE_PID = 4013
 # automatic
 %F = $(notdir $%)
 # environment
@@ -143,7 +143,7 @@ PWD = /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla
 # environment
 GTK_PATH = /snap/code/129/usr/lib/x86_64-linux-gnu/gtk-3.0
 # environment
-SSH_AGENT_PID = 1713
+SSH_AGENT_PID = 1745
 # environment
 PKG_CONFIG_PATH = /opt/ros/noetic/lib/pkgconfig
 # environment
@@ -251,6 +251,8 @@ GDK_BACKEND = x11
 # environment
 LC_PAPER = id_ID.UTF-8
 # environment
+NO_AT_BRIDGE = 1
+# environment
 LC_IDENTIFICATION = id_ID.UTF-8
 # environment
 QT_ACCESSIBILITY = 1
@@ -276,11 +278,11 @@ LC_ALL = C
 GJS_DEBUG_TOPICS = JS ERROR;JS LOG
 # automatic
 ^F = $(notdir $^)
-# default
-SUFFIXES := 
  
 make: *** No rule to make target 'all'.  Stop.
 
+# default
+SUFFIXES := 
 # environment
 CHROME_DESKTOP = code-url-handler.desktop
 # environment
@@ -298,9 +300,9 @@ LC_ADDRESS = id_ID.UTF-8
 # environment
 LANG = C
 # environment
-VSCODE_PID = 2438
+VSCODE_PID = 3296
 # variable set hash-table stats:
-# Load=143/1024=14%, Rehash=0, Collisions=25/165=15%
+# Load=144/1024=14%, Rehash=0, Collisions=25/166=15%
 
 # Pattern-specific Variable Values
 
@@ -366,6 +368,6 @@ GNUmakefile:
 # strcache performance: lookups = 20 / hit rate = 15%
 # hash-table stats:
 # Load=17/8192=0%, Rehash=0, Collisions=1/20=5%
-# Finished Make data base on Sun May 28 12:18:12 2023
+# Finished Make data base on Wed May 31 13:08:33 2023
 
  

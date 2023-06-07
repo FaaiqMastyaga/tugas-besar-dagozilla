@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- <node pkg="control" type="input_node.py" name="input_node" output="screen">
+        
+    </node>
+    <node pkg="control" type="control_node" name="control_node" output="screen"> 
+        
+    </node> -->
+    <node pkg="control" type="teleop_node" name="teleop_node" output="screen"> 
+        
+    </node>
+</launch>
