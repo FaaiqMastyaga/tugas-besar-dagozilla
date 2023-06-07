@@ -95,6 +95,8 @@ class ErraticKeyboardTeleopNode
             PWM.motor2 = 0;
             PWM.motor3 = 0;
             PWM.motor4 = 0;
+            ROS_INFO("\n");
+            ROS_INFO("Robot stopped");
             pub_.publish(PWM);
         }
 };
@@ -258,6 +260,7 @@ void moveForward() {
     PWM.motor2 = 1;
     PWM.motor3 = -1;
     PWM.motor4 = 1;
+    ROS_INFO("\n");
     ROS_INFO("Move Forward");
 }
 
@@ -266,6 +269,7 @@ void slideLeft() {
     PWM.motor2 = 1;
     PWM.motor3 = -1;
     PWM.motor4 = -1;
+    ROS_INFO("\n");
     ROS_INFO("Slide Left");
 }
 
@@ -274,6 +278,7 @@ void moveBackward() {
     PWM.motor2 = -1;
     PWM.motor3 = 1;
     PWM.motor4 = -1;
+    ROS_INFO("\n");
     ROS_INFO("Move Backward");
 }
 
@@ -282,6 +287,7 @@ void slideRight() {
     PWM.motor2 = -1;
     PWM.motor3 = 1;
     PWM.motor4 = 1;
+    ROS_INFO("\n");
     ROS_INFO("Slide Right");
 }
 
@@ -290,5 +296,6 @@ void Rotate() {
     PWM.motor2 = -1;
     PWM.motor3 = -1;
     PWM.motor4 = -1;
+    ROS_INFO("\n");
     ROS_INFO("Rotate");
 }

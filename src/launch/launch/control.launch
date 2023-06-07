@@ -9,4 +9,7 @@
     <node pkg="control" type="teleop_node" name="teleop_node" output="screen"> 
         
     </node>
+    <node pkg="control" type="sub_teleop_node" name="sub_teleop_node" output="screen"> 
+        
+    </node>
 </launch>

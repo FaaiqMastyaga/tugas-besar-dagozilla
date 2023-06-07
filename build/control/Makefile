@@ -90,6 +90,28 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -112,28 +134,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -332,6 +332,48 @@ rosgraph_msgs_generate_messages_py/fast:
 	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
+# Convenience name for target.
+control/CMakeFiles/sub_teleop_node.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/sub_teleop_node.dir/rule
+.PHONY : control/CMakeFiles/sub_teleop_node.dir/rule
+
+# Convenience name for target.
+sub_teleop_node: control/CMakeFiles/sub_teleop_node.dir/rule
+
+.PHONY : sub_teleop_node
+
+# fast build rule for target.
+sub_teleop_node/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/sub_teleop_node.dir/build.make control/CMakeFiles/sub_teleop_node.dir/build
+.PHONY : sub_teleop_node/fast
+
+src/sub_teleop_node.o: src/sub_teleop_node.cpp.o
+
+.PHONY : src/sub_teleop_node.o
+
+# target to build an object file
+src/sub_teleop_node.cpp.o:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/sub_teleop_node.dir/build.make control/CMakeFiles/sub_teleop_node.dir/src/sub_teleop_node.cpp.o
+.PHONY : src/sub_teleop_node.cpp.o
+
+src/sub_teleop_node.i: src/sub_teleop_node.cpp.i
+
+.PHONY : src/sub_teleop_node.i
+
+# target to preprocess a source file
+src/sub_teleop_node.cpp.i:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/sub_teleop_node.dir/build.make control/CMakeFiles/sub_teleop_node.dir/src/sub_teleop_node.cpp.i
+.PHONY : src/sub_teleop_node.cpp.i
+
+src/sub_teleop_node.s: src/sub_teleop_node.cpp.s
+
+.PHONY : src/sub_teleop_node.s
+
+# target to generate assembly for a file
+src/sub_teleop_node.cpp.s:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/sub_teleop_node.dir/build.make control/CMakeFiles/sub_teleop_node.dir/src/sub_teleop_node.cpp.s
+.PHONY : src/sub_teleop_node.cpp.s
+
 src/teleop_node.o: src/teleop_node.cpp.o
 
 .PHONY : src/teleop_node.o
@@ -368,6 +410,8 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... list_install_components"
+	@echo "... rebuild_cache"
+	@echo "... edit_cache"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
@@ -379,10 +423,12 @@ help:
 	@echo "... roscpp_generate_messages_py"
 	@echo "... teleop_node"
 	@echo "... test"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... sub_teleop_node"
+	@echo "... src/sub_teleop_node.o"
+	@echo "... src/sub_teleop_node.i"
+	@echo "... src/sub_teleop_node.s"
 	@echo "... src/teleop_node.o"
 	@echo "... src/teleop_node.i"
 	@echo "... src/teleop_node.s"
