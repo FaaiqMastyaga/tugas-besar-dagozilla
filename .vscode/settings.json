@@ -15,7 +15,8 @@
         "lu": "cpp",
         "qr": "cpp",
         "svd": "cpp",
-        "stdvector": "cpp"
+        "stdvector": "cpp",
+        "*.ipp": "cpp"
     },
     "python.autoComplete.extraPaths": [
         "/opt/ros/noetic/lib/python3/dist-packages"
