@@ -29,7 +29,6 @@ class TeleopKeyboard {
     private:
         ros::NodeHandle nh;
         ros::Publisher pub;
-        double pwm;
 
     public:
         TeleopKeyboard();

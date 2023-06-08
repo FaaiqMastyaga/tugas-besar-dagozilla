@@ -1,28 +1,23 @@
 #include "teleop.hpp"
 #include "setPWM.hpp"
-
+double pwm;
 int main(int argc, char** argv)
 {
     ros::init(argc,argv,"tbk", ros::init_options::AnonymousName | ros::init_options::NoSigintHandler);
+    ros::NodeHandle nh;
     TeleopKeyboard tbk;
-    
     boost::thread t = boost::thread(boost::bind(&TeleopKeyboard::keyboardLoop, &tbk));
-    
     ros::spin();
-    
     t.interrupt();
     t.join();
     tbk.stopRobot();
     tcsetattr(kfd, TCSANOW, &cooked);
-    
     return(0);
 }
 
 TeleopKeyboard::TeleopKeyboard() {
     pub = nh.advertise<msgs::HardwareCommand>("/control/command/hardware", 1);
-
     ros::NodeHandle nh_private("~");
-    nh_private.param("pwm", pwm, 1.0);
 }
 
 void TeleopKeyboard::keyboardLoop() {
@@ -44,7 +39,6 @@ void TeleopKeyboard::keyboardLoop() {
     struct pollfd ufd;
     ufd.fd = kfd;
     ufd.events = POLLIN;
-
     for(;;) {
         boost::this_thread::interruption_point();
 
@@ -68,7 +62,11 @@ void TeleopKeyboard::keyboardLoop() {
             }
             continue;
         }
-
+         if (nh.getParam("pwm",pwm)){ //added rosparam for pwm variable
+            //nothing :)
+        }else{
+            pwm = 0.5; // default value
+        }   
         switch (c) {
             case KEYCODE_W:
                 SetPWM::moveForward();
@@ -95,7 +93,6 @@ void TeleopKeyboard::keyboardLoop() {
                 dirty = false;
                 break;
         }
-
         pub.publish(PWM);
     }
 }
