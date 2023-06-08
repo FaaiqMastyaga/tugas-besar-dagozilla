@@ -69,32 +69,31 @@ void TeleopKeyboard::keyboardLoop() {
             continue;
         }
 
-        switch (c)
-        {
-        case KEYCODE_W:
-            SetPWM::moveForward();
-            dirty = true;
-            break;
-        case KEYCODE_S:
-            SetPWM::moveBackward();
-            dirty = true;
-            break;
-        case KEYCODE_A:
-            SetPWM::slideLeft();
-            dirty = true;
-            break;
-        case KEYCODE_D:
-            SetPWM::slideRight();
-            dirty = true;
-            break;
-        case KEYCODE_R:
-            SetPWM::Rotate();
-            dirty = true;
-            break;
-        
-        default:
-            dirty = false;
-            break;
+        switch (c) {
+            case KEYCODE_W:
+                SetPWM::moveForward();
+                dirty = true;
+                break;
+            case KEYCODE_S:
+                SetPWM::moveBackward();
+                dirty = true;
+                break;
+            case KEYCODE_A:
+                SetPWM::slideLeft();
+                dirty = true;
+                break;
+            case KEYCODE_D:
+                SetPWM::slideRight();
+                dirty = true;
+                break;
+            case KEYCODE_R:
+                SetPWM::Rotate();
+                dirty = true;
+                break;
+            
+            default:
+                dirty = false;
+                break;
         }
 
         pub.publish(PWM);
