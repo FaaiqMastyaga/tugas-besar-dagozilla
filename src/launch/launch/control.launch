@@ -1,15 +1,7 @@
 <?xml version="1.0"?>
 <launch>
-    <!-- <node pkg="control" type="input_node.py" name="input_node" output="screen">
-        
-    </node>
-    <node pkg="control" type="control_node" name="control_node" output="screen"> 
-        
-    </node> -->
-    <node pkg="control" type="teleop_node" name="teleop_node" output="screen"> 
-    </node>
-        <param name="pwm" type="double" value="0.5"/>
-    <node pkg="control" type="sub_teleop_node" name="sub_teleop_node" output="screen"> 
-        
-    </node>
+    <param name="pwm" type="double" value="0.5"/>
+
+    <node pkg="control" type="teleop_node" name="teleop_node" output="screen"/> 
+    <node pkg="control" type="sub_teleop_node" name="sub_teleop_node" output="screen"/> 
 </launch>

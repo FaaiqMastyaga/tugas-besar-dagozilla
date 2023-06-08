@@ -32,7 +32,6 @@ class TeleopKeyboard {
 
     public:
         TeleopKeyboard();
-        // ~TeleopKeyboard(); // this method is not used
         void keyboardLoop();
         void stopRobot();
 };

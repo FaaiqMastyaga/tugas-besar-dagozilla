@@ -1,6 +1,6 @@
 #include "teleop.hpp"
 #include "setPWM.hpp"
-double pwm;
+
 int main(int argc, char** argv)
 {
     ros::init(argc,argv,"tbk", ros::init_options::AnonymousName | ros::init_options::NoSigintHandler);
@@ -17,7 +17,6 @@ int main(int argc, char** argv)
 
 TeleopKeyboard::TeleopKeyboard() {
     pub = nh.advertise<msgs::HardwareCommand>("/control/command/hardware", 1);
-    ros::NodeHandle nh_private("~");
 }
 
 void TeleopKeyboard::keyboardLoop() {
@@ -62,11 +61,14 @@ void TeleopKeyboard::keyboardLoop() {
             }
             continue;
         }
-         if (nh.getParam("pwm",pwm)){ //added rosparam for pwm variable
+        
+        if (nh.getParam("pwm",pwm)) { //added rosparam for pwm variable
             //nothing :)
-        }else{
+        }
+        else {
             pwm = 0.5; // default value
         }   
+        
         switch (c) {
             case KEYCODE_W:
                 SetPWM::moveForward();
@@ -113,6 +115,7 @@ void SetPWM::moveForward() {
     PWM.motor2 = pwm;
     PWM.motor3 = -pwm;
     PWM.motor4 = pwm;
+
     ROS_INFO("\n");
     ROS_INFO("Move Forward");
 }
@@ -122,6 +125,7 @@ void SetPWM::slideLeft() {
     PWM.motor2 = pwm;
     PWM.motor3 = -pwm;
     PWM.motor4 = -pwm;
+
     ROS_INFO("\n");
     ROS_INFO("Slide Left");
 }
@@ -131,6 +135,7 @@ void SetPWM::moveBackward() {
     PWM.motor2 = -pwm;
     PWM.motor3 = pwm;
     PWM.motor4 = -pwm;
+
     ROS_INFO("\n");
     ROS_INFO("Move Backward");
 }
@@ -140,6 +145,7 @@ void SetPWM::slideRight() {
     PWM.motor2 = -pwm;
     PWM.motor3 = pwm;
     PWM.motor4 = pwm;
+
     ROS_INFO("\n");
     ROS_INFO("Slide Right");
 }
@@ -149,6 +155,7 @@ void SetPWM::Rotate() {
     PWM.motor2 = -pwm;
     PWM.motor3 = -pwm;
     PWM.motor4 = -pwm;
+
     ROS_INFO("\n");
     ROS_INFO("Rotate");
 }

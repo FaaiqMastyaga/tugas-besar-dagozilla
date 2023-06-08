@@ -1,6 +1,10 @@
 # tugas-besar-dagozilla
 
 
+## References
+- [Mode input bonus](https://github.com/arebgun/erratic_robot/blob/master/erratic_teleop/src/keyboard.cpp)
+
+
 
 ## Getting started
 

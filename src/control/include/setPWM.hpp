@@ -1,9 +1,10 @@
 #ifndef SETPWM_HPP
 #define SETPWM_HPP
+
+double pwm;
+
 class SetPWM {
-    private:
     public:
-        static void set_PwM();
         static void moveForward();
         static void slideLeft();
         static void moveBackward();
