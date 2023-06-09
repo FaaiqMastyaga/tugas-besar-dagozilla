@@ -90,6 +90,28 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -112,28 +134,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -288,21 +288,6 @@ rosgraph_msgs_generate_messages_eus/fast:
 .PHONY : rosgraph_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-.PHONY : control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-
-.PHONY : rosgraph_msgs_generate_messages_lisp
-
-# fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
-
-# Convenience name for target.
 control/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
 	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
 .PHONY : control/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
@@ -332,6 +317,36 @@ rosgraph_msgs_generate_messages_py/fast:
 	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
+# Convenience name for target.
+control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+.PHONY : control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_lisp: control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_lisp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_lisp/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+control/CMakeFiles/sub_control_node.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/sub_control_node.dir/rule
+.PHONY : control/CMakeFiles/sub_control_node.dir/rule
+
+# Convenience name for target.
+sub_control_node: control/CMakeFiles/sub_control_node.dir/rule
+
+.PHONY : sub_control_node
+
+# fast build rule for target.
+sub_control_node/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/sub_control_node.dir/build.make control/CMakeFiles/sub_control_node.dir/build
+.PHONY : sub_control_node/fast
+
 src/control_node.o: src/control_node.cpp.o
 
 .PHONY : src/control_node.o
@@ -359,6 +374,33 @@ src/control_node.cpp.s:
 	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/control_node.dir/build.make control/CMakeFiles/control_node.dir/src/control_node.cpp.s
 .PHONY : src/control_node.cpp.s
 
+src/sub_control_node.o: src/sub_control_node.cpp.o
+
+.PHONY : src/sub_control_node.o
+
+# target to build an object file
+src/sub_control_node.cpp.o:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/sub_control_node.dir/build.make control/CMakeFiles/sub_control_node.dir/src/sub_control_node.cpp.o
+.PHONY : src/sub_control_node.cpp.o
+
+src/sub_control_node.i: src/sub_control_node.cpp.i
+
+.PHONY : src/sub_control_node.i
+
+# target to preprocess a source file
+src/sub_control_node.cpp.i:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/sub_control_node.dir/build.make control/CMakeFiles/sub_control_node.dir/src/sub_control_node.cpp.i
+.PHONY : src/sub_control_node.cpp.i
+
+src/sub_control_node.s: src/sub_control_node.cpp.s
+
+.PHONY : src/sub_control_node.s
+
+# target to generate assembly for a file
+src/sub_control_node.cpp.s:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/sub_control_node.dir/build.make control/CMakeFiles/sub_control_node.dir/src/sub_control_node.cpp.s
+.PHONY : src/sub_control_node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -368,6 +410,8 @@ help:
 	@echo "... install/strip"
 	@echo "... install/local"
 	@echo "... list_install_components"
+	@echo "... rebuild_cache"
+	@echo "... edit_cache"
 	@echo "... roscpp_generate_messages_cpp"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
@@ -377,15 +421,17 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... control_node"
 	@echo "... rosgraph_msgs_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... test"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
 	@echo "... roscpp_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... rosgraph_msgs_generate_messages_lisp"
+	@echo "... sub_control_node"
 	@echo "... src/control_node.o"
 	@echo "... src/control_node.i"
 	@echo "... src/control_node.s"
+	@echo "... src/sub_control_node.o"
+	@echo "... src/sub_control_node.i"
+	@echo "... src/sub_control_node.s"
 .PHONY : help
 
 

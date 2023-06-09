@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <launch>
-    <node pkg="control" type="input_node.py" name="input_node" output="screen">
-        
-    </node>
-    <node pkg="control" type="control_node" name="control_node" output="screen"> 
-        
-    </node>
+    <rosparam command="load" file="$(find control)/config/rosparam.yaml"/>
+
+    <node pkg="control" type="control_node" name="control_node" output="screen"/> 
+    <node pkg="control" type="sub_control_node" name="sub_control_node" output="screen"/> 
 </launch>

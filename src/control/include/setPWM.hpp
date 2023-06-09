@@ -5,6 +5,7 @@ void moveForward();
 void slideLeft();
 void moveBackward();
 void slideRight();
-void Rotate();
+void rotate();
+void stopRobot();
 
 #endif
