@@ -11,7 +11,6 @@
 #include <boost/thread/thread.hpp>
 #include <ros/ros.h>
 
-#include "msgs/HardwareCommand.h"
 #include "setPWM.hpp"
 
 #define KEYCODE_W 0x77
@@ -19,6 +18,10 @@
 #define KEYCODE_S 0x73
 #define KEYCODE_D 0x64
 #define KEYCODE_R 0x72
+
+int kfd = 0;
+struct termios cooked, raw;
+bool done;
 
 class TeleopKeyboard {
     private:

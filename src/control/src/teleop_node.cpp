@@ -1,12 +1,6 @@
 #include "teleop.hpp"
 #include "setPWM.hpp"
 
-int kfd = 0;
-struct termios cooked, raw;
-bool done;
-msgs::HardwareCommand PWM;
-double PWMvalue;
-
 int main(int argc, char** argv)
 {
     ros::init(argc,argv,"tbk", ros::init_options::AnonymousName | ros::init_options::NoSigintHandler);
