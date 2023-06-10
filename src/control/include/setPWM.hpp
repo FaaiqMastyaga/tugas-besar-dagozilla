@@ -1,8 +1,6 @@
 #ifndef SETPWM_HPP
 #define SETPWM_HPP
 
-double pwm;
-
 class SetPWM {
     public:
         static void moveForward();

@@ -1,6 +1,12 @@
 #include "teleop.hpp"
 #include "setPWM.hpp"
 
+int kfd = 0;
+struct termios cooked, raw;
+bool done;
+msgs::HardwareCommand PWM;
+double PWMvalue;
+
 int main(int argc, char** argv)
 {
     ros::init(argc,argv,"tbk", ros::init_options::AnonymousName | ros::init_options::NoSigintHandler);
@@ -33,7 +39,6 @@ void TeleopKeyboard::keyboardLoop() {
 
     puts("Reading from keyboard");
     puts("Use WASD keys to control the robot");
-    puts("Press Shift to move faster");
     
     struct pollfd ufd;
     ufd.fd = kfd;
@@ -62,12 +67,9 @@ void TeleopKeyboard::keyboardLoop() {
             continue;
         }
         
-        if (nh.getParam("pwm",pwm)) { //added rosparam for pwm variable
-            //nothing :)
+        if (!nh.getParam("PWMvalue", PWMvalue)) { //added rosparam for PWMvalue variable
+            PWMvalue = 0.5;
         }
-        else {
-            pwm = 0.5; // default value
-        }   
         
         switch (c) {
             case KEYCODE_W:
@@ -111,50 +113,50 @@ void TeleopKeyboard::stopRobot() {
 }
 
 void SetPWM::moveForward() {
-    PWM.motor1 = -pwm;
-    PWM.motor2 = pwm;
-    PWM.motor3 = -pwm;
-    PWM.motor4 = pwm;
+    PWM.motor1 = -PWMvalue;
+    PWM.motor2 = PWMvalue;
+    PWM.motor3 = -PWMvalue;
+    PWM.motor4 = PWMvalue;
 
     ROS_INFO("\n");
     ROS_INFO("Move Forward");
 }
 
 void SetPWM::slideLeft() {
-    PWM.motor1 = pwm;
-    PWM.motor2 = pwm;
-    PWM.motor3 = -pwm;
-    PWM.motor4 = -pwm;
+    PWM.motor1 = PWMvalue;
+    PWM.motor2 = PWMvalue;
+    PWM.motor3 = -PWMvalue;
+    PWM.motor4 = -PWMvalue;
 
     ROS_INFO("\n");
     ROS_INFO("Slide Left");
 }
 
 void SetPWM::moveBackward() {
-    PWM.motor1 = pwm;
-    PWM.motor2 = -pwm;
-    PWM.motor3 = pwm;
-    PWM.motor4 = -pwm;
+    PWM.motor1 = PWMvalue;
+    PWM.motor2 = -PWMvalue;
+    PWM.motor3 = PWMvalue;
+    PWM.motor4 = -PWMvalue;
 
     ROS_INFO("\n");
     ROS_INFO("Move Backward");
 }
 
 void SetPWM::slideRight() {
-    PWM.motor1 = -pwm;
-    PWM.motor2 = -pwm;
-    PWM.motor3 = pwm;
-    PWM.motor4 = pwm;
+    PWM.motor1 = -PWMvalue;
+    PWM.motor2 = -PWMvalue;
+    PWM.motor3 = PWMvalue;
+    PWM.motor4 = PWMvalue;
 
     ROS_INFO("\n");
     ROS_INFO("Slide Right");
 }
 
 void SetPWM::Rotate() {
-    PWM.motor1 = -pwm;
-    PWM.motor2 = -pwm;
-    PWM.motor3 = -pwm;
-    PWM.motor4 = -pwm;
+    PWM.motor1 = -PWMvalue;
+    PWM.motor2 = -PWMvalue;
+    PWM.motor3 = -PWMvalue;
+    PWM.motor4 = -PWMvalue;
 
     ROS_INFO("\n");
     ROS_INFO("Rotate");

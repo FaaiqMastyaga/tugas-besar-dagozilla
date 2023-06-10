@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <launch>
-    <param name="pwm" type="double" value="0.5"/>
+    <rosparam command="load" file="$(find control)/config/param.yaml"/>
 
     <node pkg="control" type="teleop_node" name="teleop_node" output="screen"/> 
     <node pkg="control" type="sub_teleop_node" name="sub_teleop_node" output="screen"/> 

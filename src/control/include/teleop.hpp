@@ -20,11 +20,6 @@
 #define KEYCODE_D 0x64
 #define KEYCODE_R 0x72
 
-int kfd = 0;
-struct termios cooked, raw;
-bool done;
-msgs::HardwareCommand PWM;
-
 class TeleopKeyboard {
     private:
         ros::NodeHandle nh;
