@@ -5,4 +5,4 @@ Description: Description of msgs
 Version: 0.0.0
 Cflags: -I/home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/devel/include
 Libs: -L${prefix}/lib 
-Requires: 
+Requires: message_generation message_runtime std_msgs
