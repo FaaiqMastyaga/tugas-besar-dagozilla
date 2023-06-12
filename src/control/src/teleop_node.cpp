@@ -1,6 +1,8 @@
 #include "teleop.hpp"
 #include "setPWM.hpp"
+#include "sigInt.hpp"
 
+#include <csignal>
 int kfd = 0;
 struct termios cooked, raw;
 bool done;
@@ -12,6 +14,7 @@ int main(int argc, char** argv)
     ros::init(argc,argv,"tbk", ros::init_options::AnonymousName | ros::init_options::NoSigintHandler);
     ros::NodeHandle nh;
     TeleopKeyboard tbk;
+    signal(SIGINT, signalHandler); //singal interrupt
     boost::thread t = boost::thread(boost::bind(&TeleopKeyboard::keyboardLoop, &tbk));
     ros::spin();
     t.interrupt();
@@ -45,7 +48,6 @@ void TeleopKeyboard::keyboardLoop() {
     ufd.events = POLLIN;
     for(;;) {
         boost::this_thread::interruption_point();
-
         // get the next event from the keyboard
         int num;
 
@@ -160,4 +162,23 @@ void SetPWM::Rotate() {
 
     ROS_INFO("\n");
     ROS_INFO("Rotate");
+}
+void stopRobotSignal(){
+    //Initalize publisher
+    ros::NodeHandle nh;
+    ros::Publisher pub;
+    pub = nh.advertise<msgs::HardwareCommand>("/control/command/hardware", 1);
+    //set pwm to zero
+    PWM.motor2 = 0;
+    PWM.motor3 = 0;
+    PWM.motor4 = 0;
+    PWM.motor1 = 0;
+    // publish the pwm
+    pub.publish(PWM);
+}
+void signalHandler(int signal){
+    // calling stoping function
+    stopRobotSignal();
+    
+    exit(signal);
 }
