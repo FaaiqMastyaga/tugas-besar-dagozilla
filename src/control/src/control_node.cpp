@@ -148,9 +148,18 @@ void stopRobot() {
     PWM.motor4 = 0;
     ROS_INFO("Robot stopped\n");
 }
+void pubSigInt(){
+    ros::NodeHandle nh;
+    ros::Publisher pub;
+    pub = nh.advertise<msgs::HardwareCommand>("/control/command/hardware", 1);
 
+    pub.publish(PWM);
+}
 void signalHandler(int signal) {
+    // Set PWM to zero
     stopRobot();
-    // add code to publish PWM here
+    // Publish the pwm
+    pubSigInt();
+
     exit(0);
 }

@@ -4,5 +4,6 @@
 #include <csignal>
 
 void signalHandler(int);
+void pubSigInt();
 
 #endif
