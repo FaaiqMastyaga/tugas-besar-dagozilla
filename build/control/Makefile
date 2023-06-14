@@ -68,6 +68,18 @@ install/strip/fast: preinstall/fast
 	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
 .PHONY : install/strip/fast
 
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
 # Special rule for the target install/local
 install/local: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
@@ -90,16 +102,16 @@ list_install_components/fast: list_install_components
 
 .PHONY : list_install_components/fast
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
+# Special rule for the target test
+test/fast: test
 
-.PHONY : rebuild_cache/fast
+.PHONY : test/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -112,28 +124,16 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
 
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/usr/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -168,79 +168,94 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
-control/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
-.PHONY : control/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+control/CMakeFiles/control_generate_messages.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/control_generate_messages.dir/rule
+.PHONY : control/CMakeFiles/control_generate_messages.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_cpp: control/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+control_generate_messages: control/CMakeFiles/control_generate_messages.dir/rule
 
-.PHONY : roscpp_generate_messages_cpp
+.PHONY : control_generate_messages
 
 # fast build rule for target.
-roscpp_generate_messages_cpp/fast:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make control/CMakeFiles/roscpp_generate_messages_cpp.dir/build
-.PHONY : roscpp_generate_messages_cpp/fast
+control_generate_messages/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/control_generate_messages.dir/build.make control/CMakeFiles/control_generate_messages.dir/build
+.PHONY : control_generate_messages/fast
 
 # Convenience name for target.
-control/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/roscpp_generate_messages_eus.dir/rule
-.PHONY : control/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+.PHONY : control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_eus: control/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+rosgraph_msgs_generate_messages_py: control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 
-.PHONY : roscpp_generate_messages_eus
+.PHONY : rosgraph_msgs_generate_messages_py
 
 # fast build rule for target.
-roscpp_generate_messages_eus/fast:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/roscpp_generate_messages_eus.dir/build.make control/CMakeFiles/roscpp_generate_messages_eus.dir/build
-.PHONY : roscpp_generate_messages_eus/fast
+rosgraph_msgs_generate_messages_py/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+.PHONY : rosgraph_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
-.PHONY : control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+control/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+.PHONY : control/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+roscpp_generate_messages_lisp: control/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_nodejs
+.PHONY : roscpp_generate_messages_lisp
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_nodejs/fast:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
-.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
+roscpp_generate_messages_lisp/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make control/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+.PHONY : roscpp_generate_messages_lisp/fast
 
 # Convenience name for target.
-control/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
-.PHONY : control/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+control/CMakeFiles/_control_generate_messages_check_deps_HardwareCommand.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/_control_generate_messages_check_deps_HardwareCommand.dir/rule
+.PHONY : control/CMakeFiles/_control_generate_messages_check_deps_HardwareCommand.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_nodejs: control/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+_control_generate_messages_check_deps_HardwareCommand: control/CMakeFiles/_control_generate_messages_check_deps_HardwareCommand.dir/rule
 
-.PHONY : roscpp_generate_messages_nodejs
+.PHONY : _control_generate_messages_check_deps_HardwareCommand
 
 # fast build rule for target.
-roscpp_generate_messages_nodejs/fast:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make control/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
-.PHONY : roscpp_generate_messages_nodejs/fast
+_control_generate_messages_check_deps_HardwareCommand/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/_control_generate_messages_check_deps_HardwareCommand.dir/build.make control/CMakeFiles/_control_generate_messages_check_deps_HardwareCommand.dir/build
+.PHONY : _control_generate_messages_check_deps_HardwareCommand/fast
 
 # Convenience name for target.
-control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
-.PHONY : control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+.PHONY : control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+rosgraph_msgs_generate_messages_lisp: control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_cpp
+.PHONY : rosgraph_msgs_generate_messages_lisp
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_cpp/fast:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_cpp/fast
+rosgraph_msgs_generate_messages_lisp/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_lisp/fast
+
+# Convenience name for target.
+control/CMakeFiles/_control_generate_messages_check_deps_EncoderData.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/_control_generate_messages_check_deps_EncoderData.dir/rule
+.PHONY : control/CMakeFiles/_control_generate_messages_check_deps_EncoderData.dir/rule
+
+# Convenience name for target.
+_control_generate_messages_check_deps_EncoderData: control/CMakeFiles/_control_generate_messages_check_deps_EncoderData.dir/rule
+
+.PHONY : _control_generate_messages_check_deps_EncoderData
+
+# fast build rule for target.
+_control_generate_messages_check_deps_EncoderData/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/_control_generate_messages_check_deps_EncoderData.dir/build.make control/CMakeFiles/_control_generate_messages_check_deps_EncoderData.dir/build
+.PHONY : _control_generate_messages_check_deps_EncoderData/fast
 
 # Convenience name for target.
 control/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule:
@@ -258,19 +273,34 @@ rosgraph_msgs_generate_messages_eus/fast:
 .PHONY : rosgraph_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
-.PHONY : control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+control/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+.PHONY : control/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+roscpp_generate_messages_nodejs: control/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_lisp
+.PHONY : roscpp_generate_messages_nodejs
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_lisp/fast:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make control/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
-.PHONY : rosgraph_msgs_generate_messages_lisp/fast
+roscpp_generate_messages_nodejs/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make control/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+.PHONY : roscpp_generate_messages_nodejs/fast
+
+# Convenience name for target.
+control/CMakeFiles/control_gennodejs.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/control_gennodejs.dir/rule
+.PHONY : control/CMakeFiles/control_gennodejs.dir/rule
+
+# Convenience name for target.
+control_gennodejs: control/CMakeFiles/control_gennodejs.dir/rule
+
+.PHONY : control_gennodejs
+
+# fast build rule for target.
+control_gennodejs/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/control_gennodejs.dir/build.make control/CMakeFiles/control_gennodejs.dir/build
+.PHONY : control_gennodejs/fast
 
 # Convenience name for target.
 control/CMakeFiles/roscpp_generate_messages_py.dir/rule:
@@ -303,34 +333,139 @@ teleop_node/fast:
 .PHONY : teleop_node/fast
 
 # Convenience name for target.
-control/CMakeFiles/roscpp_generate_messages_lisp.dir/rule:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
-.PHONY : control/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+.PHONY : control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_lisp: control/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+rosgraph_msgs_generate_messages_nodejs: control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
 
-.PHONY : roscpp_generate_messages_lisp
+.PHONY : rosgraph_msgs_generate_messages_nodejs
 
 # fast build rule for target.
-roscpp_generate_messages_lisp/fast:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make control/CMakeFiles/roscpp_generate_messages_lisp.dir/build
-.PHONY : roscpp_generate_messages_lisp/fast
+rosgraph_msgs_generate_messages_nodejs/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make control/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+.PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
-control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
-.PHONY : control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+control/CMakeFiles/control_generate_messages_eus.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/control_generate_messages_eus.dir/rule
+.PHONY : control/CMakeFiles/control_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_py: control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+control_generate_messages_eus: control/CMakeFiles/control_generate_messages_eus.dir/rule
 
-.PHONY : rosgraph_msgs_generate_messages_py
+.PHONY : control_generate_messages_eus
 
 # fast build rule for target.
-rosgraph_msgs_generate_messages_py/fast:
-	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make control/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
-.PHONY : rosgraph_msgs_generate_messages_py/fast
+control_generate_messages_eus/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/control_generate_messages_eus.dir/build.make control/CMakeFiles/control_generate_messages_eus.dir/build
+.PHONY : control_generate_messages_eus/fast
+
+# Convenience name for target.
+control/CMakeFiles/roscpp_generate_messages_cpp.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+.PHONY : control/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_cpp: control/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+
+.PHONY : roscpp_generate_messages_cpp
+
+# fast build rule for target.
+roscpp_generate_messages_cpp/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make control/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+.PHONY : roscpp_generate_messages_cpp/fast
+
+# Convenience name for target.
+control/CMakeFiles/control_generate_messages_cpp.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/control_generate_messages_cpp.dir/rule
+.PHONY : control/CMakeFiles/control_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+control_generate_messages_cpp: control/CMakeFiles/control_generate_messages_cpp.dir/rule
+
+.PHONY : control_generate_messages_cpp
+
+# fast build rule for target.
+control_generate_messages_cpp/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/control_generate_messages_cpp.dir/build.make control/CMakeFiles/control_generate_messages_cpp.dir/build
+.PHONY : control_generate_messages_cpp/fast
+
+# Convenience name for target.
+control/CMakeFiles/control_gencpp.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/control_gencpp.dir/rule
+.PHONY : control/CMakeFiles/control_gencpp.dir/rule
+
+# Convenience name for target.
+control_gencpp: control/CMakeFiles/control_gencpp.dir/rule
+
+.PHONY : control_gencpp
+
+# fast build rule for target.
+control_gencpp/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/control_gencpp.dir/build.make control/CMakeFiles/control_gencpp.dir/build
+.PHONY : control_gencpp/fast
+
+# Convenience name for target.
+control/CMakeFiles/control_genpy.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/control_genpy.dir/rule
+.PHONY : control/CMakeFiles/control_genpy.dir/rule
+
+# Convenience name for target.
+control_genpy: control/CMakeFiles/control_genpy.dir/rule
+
+.PHONY : control_genpy
+
+# fast build rule for target.
+control_genpy/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/control_genpy.dir/build.make control/CMakeFiles/control_genpy.dir/build
+.PHONY : control_genpy/fast
+
+# Convenience name for target.
+control/CMakeFiles/control_genlisp.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/control_genlisp.dir/rule
+.PHONY : control/CMakeFiles/control_genlisp.dir/rule
+
+# Convenience name for target.
+control_genlisp: control/CMakeFiles/control_genlisp.dir/rule
+
+.PHONY : control_genlisp
+
+# fast build rule for target.
+control_genlisp/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/control_genlisp.dir/build.make control/CMakeFiles/control_genlisp.dir/build
+.PHONY : control_genlisp/fast
+
+# Convenience name for target.
+control/CMakeFiles/control_geneus.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/control_geneus.dir/rule
+.PHONY : control/CMakeFiles/control_geneus.dir/rule
+
+# Convenience name for target.
+control_geneus: control/CMakeFiles/control_geneus.dir/rule
+
+.PHONY : control_geneus
+
+# fast build rule for target.
+control_geneus/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/control_geneus.dir/build.make control/CMakeFiles/control_geneus.dir/build
+.PHONY : control_geneus/fast
+
+# Convenience name for target.
+control/CMakeFiles/control_generate_messages_nodejs.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/control_generate_messages_nodejs.dir/rule
+.PHONY : control/CMakeFiles/control_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+control_generate_messages_nodejs: control/CMakeFiles/control_generate_messages_nodejs.dir/rule
+
+.PHONY : control_generate_messages_nodejs
+
+# fast build rule for target.
+control_generate_messages_nodejs/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/control_generate_messages_nodejs.dir/build.make control/CMakeFiles/control_generate_messages_nodejs.dir/build
+.PHONY : control_generate_messages_nodejs/fast
 
 # Convenience name for target.
 control/CMakeFiles/sub_teleop_node.dir/rule:
@@ -346,6 +481,66 @@ sub_teleop_node: control/CMakeFiles/sub_teleop_node.dir/rule
 sub_teleop_node/fast:
 	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/sub_teleop_node.dir/build.make control/CMakeFiles/sub_teleop_node.dir/build
 .PHONY : sub_teleop_node/fast
+
+# Convenience name for target.
+control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+.PHONY : control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+# Convenience name for target.
+rosgraph_msgs_generate_messages_cpp: control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+
+.PHONY : rosgraph_msgs_generate_messages_cpp
+
+# fast build rule for target.
+rosgraph_msgs_generate_messages_cpp/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make control/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+.PHONY : rosgraph_msgs_generate_messages_cpp/fast
+
+# Convenience name for target.
+control/CMakeFiles/control_generate_messages_lisp.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/control_generate_messages_lisp.dir/rule
+.PHONY : control/CMakeFiles/control_generate_messages_lisp.dir/rule
+
+# Convenience name for target.
+control_generate_messages_lisp: control/CMakeFiles/control_generate_messages_lisp.dir/rule
+
+.PHONY : control_generate_messages_lisp
+
+# fast build rule for target.
+control_generate_messages_lisp/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/control_generate_messages_lisp.dir/build.make control/CMakeFiles/control_generate_messages_lisp.dir/build
+.PHONY : control_generate_messages_lisp/fast
+
+# Convenience name for target.
+control/CMakeFiles/control_generate_messages_py.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/control_generate_messages_py.dir/rule
+.PHONY : control/CMakeFiles/control_generate_messages_py.dir/rule
+
+# Convenience name for target.
+control_generate_messages_py: control/CMakeFiles/control_generate_messages_py.dir/rule
+
+.PHONY : control_generate_messages_py
+
+# fast build rule for target.
+control_generate_messages_py/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/control_generate_messages_py.dir/build.make control/CMakeFiles/control_generate_messages_py.dir/build
+.PHONY : control_generate_messages_py/fast
+
+# Convenience name for target.
+control/CMakeFiles/roscpp_generate_messages_eus.dir/rule:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f CMakeFiles/Makefile2 control/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+.PHONY : control/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+roscpp_generate_messages_eus: control/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+
+.PHONY : roscpp_generate_messages_eus
+
+# fast build rule for target.
+roscpp_generate_messages_eus/fast:
+	cd /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/build && $(MAKE) -f control/CMakeFiles/roscpp_generate_messages_eus.dir/build.make control/CMakeFiles/roscpp_generate_messages_eus.dir/build
+.PHONY : roscpp_generate_messages_eus/fast
 
 src/sub_teleop_node.o: src/sub_teleop_node.cpp.o
 
@@ -408,24 +603,37 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... install/strip"
-	@echo "... install/local"
-	@echo "... list_install_components"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... roscpp_generate_messages_cpp"
-	@echo "... roscpp_generate_messages_eus"
-	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... install"
-	@echo "... roscpp_generate_messages_nodejs"
-	@echo "... rosgraph_msgs_generate_messages_cpp"
-	@echo "... rosgraph_msgs_generate_messages_eus"
+	@echo "... control_generate_messages"
+	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... roscpp_generate_messages_lisp"
+	@echo "... _control_generate_messages_check_deps_HardwareCommand"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
+	@echo "... install/local"
+	@echo "... _control_generate_messages_check_deps_EncoderData"
+	@echo "... rosgraph_msgs_generate_messages_eus"
+	@echo "... roscpp_generate_messages_nodejs"
+	@echo "... control_gennodejs"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... teleop_node"
-	@echo "... test"
-	@echo "... roscpp_generate_messages_lisp"
-	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... rosgraph_msgs_generate_messages_nodejs"
+	@echo "... control_generate_messages_eus"
+	@echo "... roscpp_generate_messages_cpp"
+	@echo "... control_generate_messages_cpp"
+	@echo "... control_gencpp"
+	@echo "... control_genpy"
+	@echo "... control_genlisp"
+	@echo "... control_geneus"
+	@echo "... control_generate_messages_nodejs"
+	@echo "... list_install_components"
 	@echo "... sub_teleop_node"
+	@echo "... rosgraph_msgs_generate_messages_cpp"
+	@echo "... control_generate_messages_lisp"
+	@echo "... control_generate_messages_py"
+	@echo "... test"
+	@echo "... edit_cache"
+	@echo "... roscpp_generate_messages_eus"
+	@echo "... rebuild_cache"
 	@echo "... src/sub_teleop_node.o"
 	@echo "... src/sub_teleop_node.i"
 	@echo "... src/sub_teleop_node.s"

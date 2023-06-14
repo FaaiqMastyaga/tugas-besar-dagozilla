@@ -9,7 +9,7 @@ int main(int argc, char** argv)
     ros::NodeHandle nh;
     pub = nh.advertise<msgs::HardwareCommand>("/control/command/hardware", 1);
     TeleopKeyboard tbk;
-    signal(SIGINT, signalHandler); //singal interrupt
+    signal(SIGINT, signalHandler); //signal interrupt
     boost::thread t = boost::thread(boost::bind(&TeleopKeyboard::keyboardLoop, &tbk));
     ros::spin();
     t.interrupt();
@@ -177,10 +177,4 @@ void stopRobotSignal(){
     PWM.motor1 = 0;
     // publish the pwm
     pub.publish(PWM);
-}
-void signalHandler(int signal){
-    // calling stoping function
-    stopRobotSignal();
-    
-    exit(signal);
 }
