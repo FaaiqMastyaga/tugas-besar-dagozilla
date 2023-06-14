@@ -1,10 +1,13 @@
 #include "teleop.hpp"
 #include "setPWM.hpp"
+#include "signalHandler.hpp"
 
 int main(int argc, char** argv)
 {
+    signal(SIGINT, signalHandler);
     ros::init(argc,argv,"tbk", ros::init_options::AnonymousName | ros::init_options::NoSigintHandler);
     ros::NodeHandle nh;
+    pub = nh.advertise<msgs::HardwareCommand>("/control/command/hardware", 1);
     TeleopKeyboard tbk;
     boost::thread t = boost::thread(boost::bind(&TeleopKeyboard::keyboardLoop, &tbk));
     ros::spin();
@@ -15,8 +18,15 @@ int main(int argc, char** argv)
     return(0);
 }
 
-TeleopKeyboard::TeleopKeyboard() {
-    pub = nh.advertise<msgs::HardwareCommand>("/control/command/hardware", 1);
+void signalHandler(int signal) {
+    TeleopKeyboard::stopRobot();
+    ROS_INFO("Motor1 : %f", PWM.motor1);
+    ROS_INFO("Motor2 : %f", PWM.motor2);
+    ROS_INFO("Motor3 : %f", PWM.motor3);
+    ROS_INFO("Motor4 : %f", PWM.motor4);
+
+    std::cout << "\nPress Enter\n" << std::endl;
+    exit(signal);
 }
 
 void TeleopKeyboard::keyboardLoop() {

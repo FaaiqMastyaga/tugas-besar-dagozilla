@@ -150,20 +150,10 @@ add_executable(sub_teleop_node src/sub_teleop_node.cpp)
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(control_node ${control_node_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-# add_dependencies(input_node ${input_node_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(teleop_node ${teleop_node_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(sub_teleop_node ${sub_teleop_node_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(control_node
-#   ${catkin_LIBRARIES}
-# )
-
-# target_link_libraries(input_node
-#   ${catkin_LIBRARIES}
-# )
-
 target_link_libraries(teleop_node
   ${catkin_LIBRARIES}
 )

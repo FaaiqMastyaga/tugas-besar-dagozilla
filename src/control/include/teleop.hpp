@@ -23,15 +23,15 @@ int kfd = 0;
 struct termios cooked, raw;
 bool done;
 
+ros::Publisher pub;
+
 class TeleopKeyboard {
     private:
         ros::NodeHandle nh;
-        ros::Publisher pub;
 
     public:
-        TeleopKeyboard();
         void keyboardLoop();
-        void stopRobot();
+        static void stopRobot();
 };
 
 #endif
