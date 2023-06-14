@@ -26,6 +26,8 @@ void signalHandler(int signal) {
     ROS_INFO("Motor3 : %f", PWM.motor3);
     ROS_INFO("Motor4 : %f", PWM.motor4);
 
+    pub.publish(PWM);
+
     std::cout << "\nPress Enter\n" << std::endl;
     exit(signal);
 }
@@ -164,17 +166,4 @@ void SetPWM::Rotate() {
 
     ROS_INFO("\n");
     ROS_INFO("Rotate");
-}
-void stopRobotSignal(){
-    //Initalize publisher
-    ros::NodeHandle nh;
-    ros::Publisher pub;
-    pub = nh.advertise<msgs::HardwareCommand>("/control/command/hardware", 1);
-    //set pwm to zero
-    PWM.motor2 = 0;
-    PWM.motor3 = 0;
-    PWM.motor4 = 0;
-    PWM.motor1 = 0;
-    // publish the pwm
-    pub.publish(PWM);
 }
