@@ -10,17 +10,11 @@
 #include <csignal>
 #include <string>
 
-msgs::HardwareCommand PWM;  
-double PWMvalue;
-int freq;
-
 int main(int argc, char **argv)
 {
-    // initialize node
     ros::init(argc, argv, "control_node");
     ros::NodeHandle nh;
-
-    ros::Publisher pub = nh.advertise<msgs::HardwareCommand>("/control/command/hardware", 1);
+    pub = nh.advertise<msgs::HardwareCommand>("/control/command/hardware", 1);
     signal(SIGINT, signalHandler);
 
     // get PWMvalue parameter
@@ -148,6 +142,7 @@ void stopRobot() {
     PWM.motor4 = 0;
     ROS_INFO("Robot stopped\n");
 }
+
 void pubSigInt(){
     ros::NodeHandle nh;
     ros::Publisher pub;
@@ -160,6 +155,12 @@ void signalHandler(int signal) {
     stopRobot();
     // Publish the pwm
     pubSigInt();
-
+    // Print PWM published
+    ROS_INFO("PWM:");
+    ROS_INFO("motor 1: %f", PWM.motor1);
+    ROS_INFO("motor 2: %f", PWM.motor2);
+    ROS_INFO("motor 3: %f", PWM.motor3);
+    ROS_INFO("motor 4: %f", PWM.motor4);
+    std::cout << std::endl;
     exit(0);
 }

@@ -25,6 +25,8 @@ ros/message_operations.h
 /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/src/control/include/processKeyboardInput.hpp
 
 /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/src/control/include/setPWM.hpp
+msgs/HardwareCommand.h
+/home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/src/control/include/msgs/HardwareCommand.h
 
 /home/faaiq/Documents/URO/magang/tugas-besar-dagozilla/src/control/include/signalHandler.hpp
 csignal
