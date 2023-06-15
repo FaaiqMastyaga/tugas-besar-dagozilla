@@ -161,6 +161,9 @@ void signalHandler(int signal) {
     ROS_INFO("motor 2: %f", PWM.motor2);
     ROS_INFO("motor 3: %f", PWM.motor3);
     ROS_INFO("motor 4: %f", PWM.motor4);
-    std::cout << std::endl;
+
+    pub.publish(PWM);
+
+    std::cout << "\nSuccessfully interrupt\n" << std::endl;
     exit(0);
 }
