@@ -10,6 +10,7 @@ project(control)
 find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
+  msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -46,11 +47,11 @@ find_package(catkin REQUIRED COMPONENTS
 ##   * add every package in MSG_DEP_SET to generate_messages(DEPENDENCIES ...)
 
 ## Generate messages in the 'msg' folder
-# add_message_files(
-#   FILES
-#   Message1.msg
-#   Message2.msg
-# )
+add_message_files(
+  FILES
+  HardwareCommand.msg
+  EncoderData.msg
+)
 
 ## Generate services in the 'srv' folder
 # add_service_files(
@@ -67,10 +68,10 @@ find_package(catkin REQUIRED COMPONENTS
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
-# )
+generate_messages(
+  DEPENDENCIES
+  std_msgs  # Or other packages containing msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -108,6 +109,10 @@ catkin_package(
 #  DEPENDS system_lib
 )
 
+# catkin_install_python(PROGRAMS scripts/input_node.py
+#   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+# )
+
 ###########
 ## Build ##
 ###########
@@ -115,7 +120,7 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-# include
+include
   ${catkin_INCLUDE_DIRS}
 )
 
@@ -132,7 +137,10 @@ include_directories(
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/control_node.cpp)
+# add_executable(control_node src/control_node.cpp)
+# add_executable(input_node src/input_node.cpp)
+add_executable(teleop_node src/teleop_node.cpp)
+add_executable(sub_teleop_node src/sub_teleop_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -142,12 +150,17 @@ include_directories(
 
 ## Add cmake target dependencies of the executable
 ## same as for the library above
-# add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(teleop_node ${teleop_node_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(sub_teleop_node ${sub_teleop_node_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-# target_link_libraries(${PROJECT_NAME}_node
-#   ${catkin_LIBRARIES}
-# )
+target_link_libraries(teleop_node
+  ${catkin_LIBRARIES}
+)
+
+target_link_libraries(sub_teleop_node
+  ${catkin_LIBRARIES}
+)
 
 #############
 ## Install ##

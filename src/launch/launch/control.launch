@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <rosparam command="load" file="$(find control)/config/param.yaml"/>
+
+    <node pkg="control" type="teleop_node" name="teleop_node" output="screen"/> 
+    <node pkg="control" type="sub_teleop_node" name="sub_teleop_node" output="screen"/> 
+</launch>
