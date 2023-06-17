@@ -70,6 +70,7 @@ void TeleopKeyboard::keyboardLoop() {
                 stopRobot();
                 dirty = false;
             }
+            pub.publish(PWM);
             continue;
         }
         
@@ -129,10 +130,10 @@ void SetPWM::moveForward() {
 }
 
 void SetPWM::slideLeft() {
-    PWM.motor1 = PWMvalue;
-    PWM.motor2 = PWMvalue;
-    PWM.motor3 = -PWMvalue;
-    PWM.motor4 = -PWMvalue;
+    PWM.motor1 = -PWMvalue;
+    PWM.motor2 = -PWMvalue;
+    PWM.motor3 = PWMvalue;
+    PWM.motor4 = PWMvalue;
 
     ROS_INFO("\n");
     ROS_INFO("Slide Left");
@@ -149,10 +150,10 @@ void SetPWM::moveBackward() {
 }
 
 void SetPWM::slideRight() {
-    PWM.motor1 = -PWMvalue;
-    PWM.motor2 = -PWMvalue;
-    PWM.motor3 = PWMvalue;
-    PWM.motor4 = PWMvalue;
+    PWM.motor1 = PWMvalue;
+    PWM.motor2 = PWMvalue;
+    PWM.motor3 = -PWMvalue;
+    PWM.motor4 = -PWMvalue;
 
     ROS_INFO("\n");
     ROS_INFO("Slide Right");
